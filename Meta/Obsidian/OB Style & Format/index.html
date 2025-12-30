@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>OB Style &amp; Format</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("data-lucide",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script defer="defer" src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script defer="defer" src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script defer="defer" src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.8c21c590.css" rel="stylesheet">
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+<style></style>
+</head>
+<body class="theme-light markdown-preview-view markdown-rendered markdown-preview-section title-note-icon filetree-note-icon links-note-icon backlinks-note-icon css-settings-manager mod-macos is-frameless is-maximized is-hidden-frameless obsidian-app theme-light show-inline-title show-view-header dynamic-views-open-on-card dynamic-views-thumbnail-expand-click hider-scroll hider-file-nav-header hider-vault codeblock-customizer codeblock-customizer-show-line-numbers codeblock-customizer-gutter-highlight codeblock-customizer-gutter-active-line codeblock-customizer-collapseIconNone codeblock-customizer-style-inline-code css-settings-manager show-whitespace-cm6 swcm6-show-frontmatter-whitespace swcm6-show-table-whitespace dynamic-views-card-border dynamic-views-card-background-tinted dynamic-views-show-search dynamic-views-show-result-count dynamic-views-show-create-note dynamic-views-show-shuffle dynamic-views-show-random dynamic-views-show-edit-query dynamic-views-show-pin-toolbar dynamic-views-show-expand-width dynamic-views-thumbnail-right dynamic-views-thumbnail-crop-center dynamic-views-cover-top dynamic-views-cover-crop-center dynamic-views-cover-crop-tb dynamic-views-cover-crop-lr dynamic-views-cover-bg-ambient dynamic-views-masonry-flexible-cover-height dynamic-views-show-cover-placeholder-grid dynamic-views-tag-style-outline dynamic-views-fade-trimmed-content dynamic-views-timestamp-recent-time-only dynamic-views-timestamp-older-date-only dynamic-views-timestamp-icon-outer codeblock-customizer-active-line-highlight codeblock-customizer-show-langnames is-focused">
+<div x-init="isDesktop = (window.innerWidth>=1000) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i data-lucide="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">toadfans</h1>
+</a>
+</div>
+<div class="search-button align-icon" onclick="toggleSearch()">
+<span class="search-icon">
+<i data-lucide="search"></i>
+</span>
+<span class="search-text">Search</span>
+<span class="search-keys">Ctrl K</span>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<div class="filetree-wrapper" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<nav class="filetree-sidebar">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">toadfans</h1>
+</a>
+<div class="search-button align-icon" onclick="toggleSearch()">
+<span class="search-icon">
+<i data-lucide="search"></i>
+</span>
+<span class="search-text">Search</span>
+<span class="search-keys">Ctrl K</span>
+</div>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Areas&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">Areas</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Areas/Trading&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">Trading</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Areas/Trading/Structures&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">Structures</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Areas/Trading/Structures/Fair Value Gap/">Fair Value Gap </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Clippings&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Clippings/2026-W01&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">2026-W01</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/2026-W01/Thread by @Astronaut_1216/">Thread by @Astronaut_1216 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/2026-W01/Thread by @DataChaz/">Thread by @DataChaz </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Journals&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">Journals</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Journals/2025-12&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">2025-12</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Journals/2025-12/2025-12-10/">2025-12-10 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Journals/2025-12/2025-12-27/">2025-12-27 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Journals/2025-12/2025-12-28/">2025-12-28 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/">2025-12-29 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Journals/2025-12/2025-12-30/">2025-12-30 </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Meta&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">Meta</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Meta/MetaSchema&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">MetaSchema</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Meta/MetaSchema/Clippings/">Clippings </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as(&quot;Meta/Obsidian&quot;)}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" data-lucide="chevron-down"></i>
+<i x-show="!isOpen" data-lucide="chevron-right"></i>
+<span class="foldername">Obsidian</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Meta/Obsidian/OB Style &amp; Format/">OB Style &amp; Format </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="share" style="text-decoration:none" class="filename" href="/Meta/Obsidian/Publish/">Publish </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink">
+<a data-note-icon="" style="text-decoration:none" class="filename" href="/Meta/Obsidian/Share/">Share </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div class="search-container" id="globalsearch" onclick="toggleSearch()">
+<div class="search-box" onclick="event.stopPropagation()">
+<div class="search-header">
+<input type="search" id="term" placeholder="Start typing...">
+</div>
+<div class="search-layout no-preview" id="search-layout">
+<div class="search-results-panel" id="search-results"></div>
+<div class="search-preview-panel" id="search-preview">
+<div class="preview-placeholder">
+<i data-lucide="file-text"></i>
+<p>Select a result to preview</p>
+</div>
+<div class="preview-content" id="preview-content"></div>
+</div>
+</div>
+<footer class="search-box-footer">
+<div class="navigation-hint">
+<span>Enter to select</span>
+</div>
+<div class="navigation-hint align-icon">
+<i data-lucide="arrow-up" aria-hidden="true"></i>
+<i data-lucide="arrow-down" aria-hidden="true"></i>
+<span>to navigate</span>
+</div>
+<div class="navigation-hint">
+<span>ESC to close</span>
+</div>
+</footer>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"></script>
+<script>document.addEventListener("DOMContentLoaded",init,!1),document.addEventListener("DOMContentLoaded",setCorrectShortcut,!1);const previewCache=new Map;window.toggleSearch=function(){const e=document.getElementById("globalsearch");e.classList.contains("active")?e.classList.remove("active"):(e.classList.add("active"),document.getElementById("term").focus())},window.toggleTagSearch=function(e){const t=e.textContent;t&&(document.getElementById("term").value=t.trim(),window.toggleSearch(),window.search())};const loadingSvg='\n    <div style="display: flex; justify-content: center; padding: 40px;">\n        <svg width="40" height="40" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">\n            <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">\n                <circle cx="22" cy="22" r="6" stroke-opacity="0">\n                    <animate attributeName="r" begin="1.5s" dur="3s" values="6;22" calcMode="linear" repeatCount="indefinite" />\n                    <animate attributeName="stroke-opacity" begin="1.5s" dur="3s" values="1;0" calcMode="linear" repeatCount="indefinite" />\n                    <animate attributeName="stroke-width" begin="1.5s" dur="3s" values="2;0" calcMode="linear" repeatCount="indefinite" />\n                </circle>\n                <circle cx="22" cy="22" r="6" stroke-opacity="0">\n                    <animate attributeName="r" begin="3s" dur="3s" values="6;22" calcMode="linear" repeatCount="indefinite" />\n                    <animate attributeName="stroke-opacity" begin="3s" dur="3s" values="1;0" calcMode="linear" repeatCount="indefinite" />\n                    <animate attributeName="stroke-width" begin="3s" dur="3s" values="2;0" calcMode="linear" repeatCount="indefinite" />\n                </circle>\n                <circle cx="22" cy="22" r="8">\n                    <animate attributeName="r" begin="0s" dur="1.5s" values="6;1;2;3;4;5;6" calcMode="linear" repeatCount="indefinite" />\n                </circle>\n            </g>\n        </svg>\n    </div>';function debounce(e,t,n){var r;return function(){var i=this,s=arguments,a=n&&!r;clearTimeout(r),r=setTimeout((function(){r=null,n||e.apply(i,s)}),t),a&&e.apply(i,s)}}function setCorrectShortcut(){navigator.platform.toUpperCase().indexOf("MAC")>=0&&document.querySelectorAll(".search-keys").forEach((e=>e.innerHTML="⌘K"))}function tokenizeSearchTerms(e){const t=[],n=/"([^"]+)"|(\S+)/g;let r;for(;null!==(r=n.exec(e));){const e=(r[1]||r[2]).toLowerCase();e.length>1&&t.push(e)}return t.sort(((e,t)=>t.length-e.length))}function highlightTerms(e,t){if(!t||0===t.length||!e)return e;let n=e;return t.forEach((e=>{const t=e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),r=new RegExp(`(${t})`,"gi");n=n.replace(r,'<span class="search-highlight">$1</span>')})),n}function getContextualExcerpt(e,t,n=150){if(!e)return"";const r=e.replace(/<[^>]*>/g,"");if(!t||0===t.length)return truncateText(r,n);let i=r.length;if(t.forEach((e=>{const t=r.toLowerCase().indexOf(e.toLowerCase());-1!==t&&t<i&&(i=t)})),i===r.length)return truncateText(r,n);const s=Math.max(0,i-50),a=Math.min(r.length,s+n);let c=r.substring(s,a);return s>0&&(c="..."+c),a<r.length&&(c+="..."),c}function truncateText(e,t){return e?(e=e.replace(/<[^>]*>/g,"")).length<=t?e:e.substring(0,t-3)+"...":""}async function fetchPreviewContent(e){if(previewCache.has(e))return previewCache.get(e);try{const t=await fetch(e),n=await t.text(),r=new DOMParser,i=r.parseFromString(n,"text/html").querySelector(".content, .cm-s-obsidian, article, main"),s=i?i.innerHTML:"";return previewCache.set(e,s),s}catch(e){return console.error("Failed to fetch preview:",e),""}}function highlightTextNodes(e,t){if(!t||0===t.length)return;const n=document.createTreeWalker(e,NodeFilter.SHOW_TEXT,null,!1),r=[];for(;n.nextNode();)r.push(n.currentNode);r.forEach((e=>{const n=e.textContent;let r=!1;if(t.forEach((e=>{n.toLowerCase().includes(e.toLowerCase())&&(r=!0)})),r){const r=document.createElement("span");r.innerHTML=highlightTerms(n,t),e.parentNode.replaceChild(r,e)}}))}async function showPreview(e){const t=window.searchResults;if(!t||!t[e])return;const n=t[e],r=document.getElementById("search-preview"),i=document.getElementById("preview-content"),s=r.querySelector(".preview-placeholder");if(!r||!i)return;document.querySelectorAll(".searchresult").forEach((e=>e.classList.remove("active")));const a=document.querySelector(`.searchresult[data-index="${e}"]`);a&&a.classList.add("active"),i.innerHTML=loadingSvg,i.classList.add("has-content"),s.style.display="none";const c=await fetchPreviewContent(n.url),o=n.tags&&n.tags.length>0?`<div class="preview-tags">${n.tags.map((e=>`<a class="tag" href="javascript:void(0);" onclick="toggleTagSearch(this)">#${e}</a>`)).join("")}</div>`:"";i.innerHTML=`\n            <div class="preview-title">${highlightTerms(n.title,window.searchTerms)}</div>\n            ${o}\n            <div class="preview-body">${c}</div>\n        `;const l=i.querySelector(".preview-body");l&&window.searchTerms&&highlightTextNodes(l,window.searchTerms),window.currentPreviewIndex=e}function hidePreview(){const e=document.getElementById("search-preview"),t=document.getElementById("preview-content"),n=e?.querySelector(".preview-placeholder");n&&(n.style.display="flex"),t&&(t.classList.remove("has-content"),t.innerHTML=""),window.currentPreviewIndex=-1}function createIndex(e){const t=e=>e.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/),n=new FlexSearch.Document({cache:!0,charset:"latin:extra",optimize:!0,index:[{field:"content",tokenize:"reverse",encode:t},{field:"title",tokenize:"forward",encode:t},{field:"tags",tokenize:"forward",encode:t}]});return e.forEach(((e,t)=>{n.add({id:t,title:e.title,content:e.content,tags:e.tags})})),n}async function init(){const e=await fetch("/searchIndex.json?v=2025-12-30T07:42:48.729Z").then((e=>e.json())),t=createIndex(e);function n(e){const t=document.querySelectorAll(".searchresult");if(0===t.length)return;let n,r=-1;t.forEach(((e,t)=>{e.classList.contains("active")&&(r=t)})),-1===r?n=e>0?0:t.length-1:(n=r+e,n<0&&(n=t.length-1),n>=t.length&&(n=0)),t.forEach((e=>e.classList.remove("active"))),t[n].classList.add("active"),t[n].scrollIntoView({behavior:"smooth",block:"nearest"}),showPreview(parseInt(t[n].dataset.index))}window.docs=e,window.index=t,document.addEventListener("keydown",(e=>{if((e.ctrlKey||e.metaKey)&&"k"===e.key&&(e.preventDefault(),toggleSearch()),"Escape"===e.key&&document.getElementById("globalsearch").classList.remove("active"),document.getElementById("globalsearch").classList.contains("active")&&("ArrowDown"===e.key&&(e.preventDefault(),n(1)),"ArrowUp"===e.key&&(e.preventDefault(),n(-1)),"Enter"===e.key)){e.preventDefault();const t=document.querySelector(".searchresult.active");if(t){const e=t.dataset.url;e&&(window.location.href=e)}}}));const r=debounce(search,200,!1);window.field=document.querySelector("#term"),field.addEventListener("keydown",(e=>{"ArrowDown"!==e.key&&"ArrowUp"!==e.key&&"Enter"!==e.key&&r()})),window.resultsDiv=document.querySelector("#search-results");const i=new URL(location.href).searchParams;i.get("q")&&(field.setAttribute("value",i.get("q")),toggleSearch(),search())}async function search(){const e=field.value.trim(),t=document.getElementById("search-layout");if(!e)return resultsDiv.innerHTML="",hidePreview(),void(t&&t.classList.add("no-preview"));if(e===lastSearch)return;window.lastSearch=e,window.searchTerms=tokenizeSearchTerms(e),resultsDiv.innerHTML=loadingSvg,hidePreview();const n=offlineSearch(e);if(window.searchResults=n,!n.length)return t&&t.classList.add("no-preview"),void(resultsDiv.innerHTML=`\n                <div class="no-results">\n                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n                        <circle cx="11" cy="11" r="8"></circle>\n                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>\n                        <line x1="8" y1="11" x2="14" y2="11"></line>\n                    </svg>\n                    <p>No results for "${e}"</p>\n                </div>\n            `);t&&t.classList.remove("no-preview");let r="";n.forEach(((e,t)=>{const n=highlightTerms(getContextualExcerpt(e.content,window.searchTerms,120),window.searchTerms),i=highlightTerms(e.title,window.searchTerms),s=e.tags&&e.tags.length>0?`<div class="result-tags">${e.tags.map((e=>`<span class="tag">#${e}</span>`)).join("")}</div>`:"";r+=`\n                <div class="searchresult${0===t?" active":""}"\n                     data-index="${t}"\n                     data-url="${e.url}"\n                     onmouseenter="showPreview(${t})"\n                     onclick="window.location.href='${e.url}'">\n                    <span class="result-title">${i}</span>\n                    ${s}\n                    <div class="result-excerpt">${n}</div>\n                </div>\n            `})),resultsDiv.innerHTML=r,n.length>0&&showPreview(0),"undefined"!=typeof lucide&&lucide.createIcons()}function offlineSearch(e){const t=window.docs,n="#"===e[0]&&e.length>1?index.search(e.substring(1),[{field:"tags"}]):index.search(e,[{field:"title",limit:5},{field:"content",limit:10}]),r=e=>{const t=n.filter((t=>t.field===e));return 0===t.length?[]:[...t[0].result]};return[...new Set([...r("title"),...r("content"),...r("tags")])].map((e=>{const n={...t[e]};return n.tags=n.tags.filter((e=>"gardenEntry"!==e&&"note"!==e)),n}))}window.lastSearch="",window.searchResults=[],window.searchTerms=[],window.currentPreviewIndex=-1,window.search=search</script>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">OB Style &amp; Format</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#learn
+</a>
+</div>
+</div>
+</header>
+<h2 id="tasks" tabindex="-1">Tasks</h2>
+<h2 id="draft" tabindex="-1">Draft</h2>
+<h3 id="citekey" tabindex="-1">Citekey</h3>
+<p>[@Danner2001]</p>
+<h3 id="math" tabindex="-1">Math</h3>
+<pre><code class="language-math"># Basic
+A = 1
+B = 2
+C = A + B
+
+# Other
+D = C + C + 1
+</code></pre>
+<pre><code class="language-math">20 mi / 4 hr to m/s
+</code></pre>
+<h3 id="text" tabindex="-1">Text</h3>
+<p><em>helloworld</em></p>
+<h3 id="html-tag" tabindex="-1">HTML tag</h3>
+<p><a href="https://forum-zh.obsidian.md/t/topic/46584" target="_blank" class="external-link">https://forum-zh.obsidian.md/t/topic/46584</a></p>
+<p><aaaa></aaaa></p>
+<h3 id="flavor" tabindex="-1">Flavor</h3>
+<p>123<sup>123aaa</sup><br>
+456<sub>456aaa</sub></p>
+<h3 id="table" tabindex="-1">Table</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>First Header</th>
+<th style="text-align:center">Second Header</th>
+<th style="text-align:right">Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content</td>
+<td style="text-align:center"><em>Long Cell</em></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>Content</td>
+<td style="text-align:center"><strong>Cell</strong></td>
+<td style="text-align:right">Cell</td>
+</tr>
+<tr>
+<td>New section</td>
+<td style="text-align:center">More</td>
+<td style="text-align:right">Data</td>
+</tr>
+<tr>
+<td>And more</td>
+<td style="text-align:center">With an escaped '|'</td>
+<td style="text-align:right"></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Markdown</th>
+<th>Rendered HTML</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Italic</em></td>
+<td><em>Italic</em></td>
+<td>\</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- Item 1</td>
+<td>- Item 1</td>
+<td>\</td>
+</tr>
+<tr>
+<td>- Item 2</td>
+<td>- Item 2</td>
+<td></td>
+</tr>
+<tr>
+<td>```python</td>
+<td>```python \</td>
+<td></td>
+</tr>
+<tr>
+<td>.1 + .2</td>
+<td>.1 + .2 \</td>
+<td></td>
+</tr>
+<tr>
+<td>```</td>
+<td>```</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:right">Stage</th>
+<th style="text-align:right">Direct Products</th>
+<th style="text-align:right">ATP Yields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">Glycolysis</td>
+<td style="text-align:right">2 ATP</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:right">^^</td>
+<td style="text-align:right">2 NADH</td>
+<td style="text-align:right">3--5 ATP</td>
+</tr>
+<tr>
+<td style="text-align:right">Pyruvaye oxidation</td>
+<td style="text-align:right">2 NADH</td>
+<td style="text-align:right">5 ATP</td>
+</tr>
+<tr>
+<td style="text-align:right">Citric acid cycle</td>
+<td style="text-align:right">2 ATP</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:right">^^</td>
+<td style="text-align:right">6 NADH</td>
+<td style="text-align:right">15 ATP</td>
+</tr>
+<tr>
+<td style="text-align:right">^^</td>
+<td style="text-align:right">2 FADH2</td>
+<td style="text-align:right">3 ATP</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>30--32</strong> ATP</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="test-theme" tabindex="-1">Test Theme</h3>
+<ul>
+<li>H1: ✦ ✪ ✷ 🟊</li>
+<li>H2: § ¶ ✱ ✻</li>
+<li>H3: ◇ ◈ ◊ ✧</li>
+<li>H4: ○ ◯ ◉ ◎</li>
+<li>H5: ▢ ▣ ▤ ◻</li>
+<li>H6: › » ➤ →</li>
+</ul>
+<ol>
+<li>123
+<ol>
+<li>45445
+<ol>
+<li>123
+<ol>
+<li>dasddas</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><mark>123</mark></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> 123 [created:: 2025-09-17T16:19:10+08:00]</label></li>
+</ul>
+<h3 id="broken-link" tabindex="-1">Broken Link</h3>
+<ul>
+<li>[[OB Style &amp; Format#Broken Link]] %% ok %%</li>
+<li>[[OB Style &amp; Format#InvalidLink]]</li>
+<li>[[OB Style &amp; Format#invalid-id]]</li>
+<li>[[invalid page]]</li>
+<li>[[invalid page#invalid-outline]]</li>
+<li>[[invalid page#^invalid-id]]</li>
+</ul>
+<h3 id="auto-embed-link-test" tabindex="-1">Auto Embed Link Test</h3>
+<p><a href="https://www.reddit.com/r/emacs/comments/1niadv5/still_using_emacs_in_2025_yes_and_heres_why/" target="_blank" class="external-link">https://www.reddit.com/r/emacs/comments/1niadv5/still_using_emacs_in_2025_yes_and_heres_why/</a></p>
+<p><a href="https://github.com/GnoxNahte/obsidian-auto-embed/issues/26" target="_blank" class="external-link">https://github.com/GnoxNahte/obsidian-auto-embed/issues/26</a></p>
+<p><a href="https://github.com/nekoshita/obsidian-auto-card-link/blob/main/src/code_block_generator.ts#L63" target="_blank" class="external-link">https://github.com/nekoshita/obsidian-auto-card-link/blob/main/src/code_block_generator.ts#L63</a></p>
+<p><a href="https://github.com/nekoshita/obsidian-auto-card-link/blob/main/src/code_block_generator.ts#L63" target="_blank" class="external-link">github test</a></p>
+<p><a href="https://www.figma.com/file/2qNJJSJiZeZwnffWJBZuM4/Web-UI?node-id=0-1&amp;t=xqmwC5PWPE57phwY-0" target="_blank" class="external-link">https://www.figma.com/file/2qNJJSJiZeZwnffWJBZuM4/Web-UI?node-id=0-1&amp;t=xqmwC5PWPE57phwY-0</a></p>
+<p><a href="https://gist.github.com/Swop/4588969" target="_blank" class="external-link">https://gist.github.com/Swop/4588969</a></p>
+<p><img src="https://www.reddit.com/r/emacs/comments/1niadv5/still_using_emacs_in_2025_yes_and_heres_why/" alt=""></p>
+<p><img src="https://x.com/solana/status/1967353331636216277" alt=""></p>
+<pre><code class="language-embed-cpp">PATH: &quot;https://raw.githubusercontent.com/almariah/embed-code-file/main/main.ts&quot;
+LINES: &quot;30-40&quot;
+TITLE: &quot;Some title&quot;
+</code></pre>
+<p><img src="https://github.com/nekoshita/obsidian-auto-card-link/blob/main/src/code_block_generator.ts#L63" alt="github link"></p>
+<pre><code class="language-cardlink">url: https://github.com/nekoshita/obsidian-auto-card-link/blob/main/src/code_block_generator.ts#L63
+title: &quot;obsidian-auto-card-link/src/code_block_generator.ts at main · nekoshita/obsidian-auto-card-link&quot;
+description: &quot;Contribute to nekoshita/obsidian-auto-card-link development by creating an account on GitHub.&quot;
+host: github.com
+favicon: https://github.githubassets.com/favicons/favicon.svg
+image: https://opengraph.githubassets.com/f290b6d4865f1629d96e9e6b314a21b499f225b7ee2a134c216a5d0cb2caa690/nekoshita/obsidian-auto-card-link
+</code></pre>
+<pre><code class="language-cardlink">url: https://github.com/chenghongyao/obsidian-linkcard-plugin/blob/master/src/main.ts
+title: &quot;obsidian-linkcard-plugin/src/main.ts at master · chenghongyao/obsidian-linkcard-plugin&quot;
+description: &quot;render link to card in obsidian. Contribute to chenghongyao/obsidian-linkcard-plugin development by creating an account on GitHub.&quot;
+host: github.com
+favicon: https://github.githubassets.com/favicons/favicon.svg
+image: https://opengraph.githubassets.com/2a72c63683b077df216f7d837c9e469853303253f49273f1d0868c8b65bbc447/chenghongyao/obsidian-linkcard-plugin
+</code></pre>
+<pre><code class="language-embed">title: &quot;obsidian-auto-card-link/src/code_block_generator.ts at main · nekoshita/obsidian-auto-card-link&quot;
+image: &quot;https://opengraph.githubassets.com/f290b6d4865f1629d96e9e6b314a21b499f225b7ee2a134c216a5d0cb2caa690/nekoshita/obsidian-auto-card-link&quot;
+description: &quot;Contribute to nekoshita/obsidian-auto-card-link development by creating an account on GitHub.&quot;
+url: &quot;https://github.com/nekoshita/obsidian-auto-card-link/blob/main/src/code_block_generator.ts#L63&quot;
+favicon: &quot;https://github.githubassets.com/favicons/favicon.svg&quot;
+aspectRatio: &quot;50&quot;
+</code></pre>
+<h3 id="outline-numbering" tabindex="-1">Outline Numbering</h3>
+<ul>
+<li>1
+<ul>
+<li>1.1.</li>
+</ul>
+</li>
+<li>1.2.
+<ul>
+<li>1.2.1</li>
+<li>1.2.2</li>
+<li>1.2.3</li>
+</ul>
+</li>
+<li>1.3.
+<ul>
+<li>1.3.1</li>
+<li>1.3.2</li>
+</ul>
+</li>
+</ul>
+<h3 id="whitespace" tabindex="-1">Whitespace</h3>
+<ul>
+<li>Foo bar 123<br>
+Tab 123</li>
+</ul>
+<pre><code class="language-foobar">    123
+    	ta‌b
+    	  	tab &amp; space
+    
+Support Full Corner `\u3000`/ 123
+    	1‌‌‌23
+    	
+</code></pre>
+<h3 id="anyblock" tabindex="-1">Anyblock</h3>
+<p>[list2table]</p>
+<ul>
+<li>1
+<ul>
+<li>2</li>
+<li>3</li>
+</ul>
+</li>
+<li>2
+<ul>
+<li>4</li>
+<li>5</li>
+<li>1
+<ul>
+<li>6</li>
+<li>7</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>[list2mdtable]</p>
+<ul>
+<li>&lt; Language<br>语言
+<ul>
+<li>Print statement<br>打印语句
+<ul>
+<li>characteristic<br>特点</li>
+<li>image</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Java
+<ul>
+<li>
+<pre><code class="language-java">System.out.
+    println(&quot;Hello World&quot;);
+</code></pre>
+<ul>
+<li>This sentence is a little long<br>这语句有点长</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>C
+<ul>
+<li>
+<pre><code class="language-c">printf(&quot;Hello World&quot;);
+</code></pre>
+<ul>
+<li>The raw C output<br>原始的C输出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>C++
+<ul>
+<li>
+<pre><code class="language-cpp">std::cout&lt;&lt;&quot;Hello Wrold&quot;;
+// &lt;&lt;std::end;
+</code></pre>
+<ul>
+<li>Stream output, but this thing has a high performance overhead<br>
+流输出，但是这东西开销大
+<blockquote>
+<ul>
+<li>newline：<code>&lt;&lt;std::end;</code></li>
+<li>换行: <code>&lt;&lt;std::end;</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Python
+<ul>
+<li>
+<pre><code class="language-python">print(&quot;Hello World&quot;)
+</code></pre>
+<ul>
+<li>Note that Python2 and Python3 have different print statements<br>需要注意一下Python2和Python3的打印语句不同
+<table>
+<thead>
+<tr>
+<th>python2</th>
+<th>python3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>print &quot;&quot;</code></td>
+<td><code>print(&quot;&quot;)</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JavaScript
+<ul>
+<li>
+<pre><code class="language-js">console.log(&quot;Hello World&quot;);
+</code></pre>
+<ul>
+<li>Console printing<br>控制台打印</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>[list2card|addClass(ab-col3)]</p>
+<ul>
+<li>card1<br>
+card1_item<br><mjx-container class="MathJax" jax="SVG" style="direction:ltr;position:relative"><svg style="overflow:visible;min-height:1px;min-width:1px;vertical-align:-.186ex" xmlns="http://www.w3.org/2000/svg" width="9.176ex" height="1.692ex" role="img" focusable="false" viewBox="0 -666 4056 748" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" style="stroke-width:3"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z" style="stroke-width:3"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" style="stroke-width:3"></path></g><g data-mml-node="mo" transform="translate(2500.2,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z" style="stroke-width:3"></path></g><g data-mml-node="mn" transform="translate(3556,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" style="stroke-width:3"></path></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline" style="top:0;left:0;clip:rect(1px,1px,1px,1px);-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;position:absolute;padding:1px 0 0 0;border:0;display:block;width:auto;overflow:hidden"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>2</mn></math></mjx-assistive-mml></mjx-container></li>
+<li>card2<br>
+card2_item<pre><code class="language-js">var a = 1
+// 	tab
+</code></pre>
+</li>
+<li>card3<br>
+card3_item<br>
+<strong>Bold</strong> <em>italics</em> <mark>highlight</mark> <s>delete</s>
+<ul>
+<li>list1</li>
+<li>list2</li>
+<li>list3</li>
+</ul>
+</li>
+<li>card1<br>
+card1_item<br><mjx-container class="MathJax" jax="SVG" style="direction:ltr;position:relative"><svg style="overflow:visible;min-height:1px;min-width:1px;vertical-align:-.186ex" xmlns="http://www.w3.org/2000/svg" width="9.176ex" height="1.692ex" role="img" focusable="false" viewBox="0 -666 4056 748" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" style="stroke-width:3"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z" style="stroke-width:3"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" style="stroke-width:3"></path></g><g data-mml-node="mo" transform="translate(2500.2,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z" style="stroke-width:3"></path></g><g data-mml-node="mn" transform="translate(3556,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" style="stroke-width:3"></path></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline" style="top:0;left:0;clip:rect(1px,1px,1px,1px);-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;position:absolute;padding:1px 0 0 0;border:0;display:block;width:auto;overflow:hidden"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>2</mn></math></mjx-assistive-mml></mjx-container></li>
+<li>card2<br>
+card2_item<pre><code class="language-js">var a = 1
+</code></pre>
+</li>
+</ul>
+<p>[list2card|addClass(ab-col3)]</p>
+<ul>
+<li>!<a class="internal-link is-unresolved" href="/404" target="">image.png</a></li>
+<li>!<a class="internal-link is-unresolved" href="/404" target="">image.png</a></li>
+<li>!<a class="internal-link is-unresolved" href="/404" target="">image.png</a></li>
+</ul>
+<h3 id="image" tabindex="-1">Image</h3>
+<p>!<a class="internal-link is-unresolved" href="/404" target="">not exist 300</a></p>
+<p>!<a class="internal-link is-unresolved" href="/404" target="">image.png 600</a></p>
+<h3 id="file-format" tabindex="-1">File Format</h3>
+<p><a href="https://forum.obsidian.md/t/how-to-just-view-non-markdown-files-and-open-it/67212" target="_blank" class="external-link">https://forum.obsidian.md/t/how-to-just-view-non-markdown-files-and-open-it/67212</a></p>
+<h3 id="virtual-link" tabindex="-1">Virtual Link</h3>
+<p><a href="https://github.com/vschroeter/obsidian-virtual-linker" target="_blank" class="external-link">https://github.com/vschroeter/obsidian-virtual-linker</a></p>
+<p>obsidian</p>
+<p>Dataview</p>
+<h3 id="mermaid" tabindex="-1">Mermaid</h3>
+<p><a href="https://github.com/PKM-er/Pkmer-Docs/blob/main/02-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/Mermaid/Mermaid%E8%AF%AD%E6%B3%95-%E6%B5%81%E7%A8%8B%E5%9B%BE.md" target="_blank" class="external-link">https://github.com/PKM-er/Pkmer-Docs/blob/main/02-知识管理基础/Mermaid/Mermaid语法-流程图.md</a></p>
+<pre class="mermaid">flowchart TD
+
+A[Christmas] -->|Get money| B(Go shopping)
+
+B --> C{Let me think}
+
+C -->|One| D[Laptop]
+
+C -->|Two| E[iPhone]
+
+C -->|Three| F[fa:fa-car Car]</pre><pre class="mermaid">graph LR
+	 虚线
+	b1-.-b2-..-b3-...-b4;
+
+	 箭头实线
+	d1-->d2--->d3---->d4;
+
+	 箭头粗实线
+	f1==>f2===>f3====>f4;</pre><pre class="mermaid">graph BT
+	id1[我]-->id2[父亲]
+	id1-->id3[母亲]
+	
+	id2--妈妈-->id4[奶奶]
+	id2--爸爸-->id5[爷爷]
+	
+	id3--妈妈-->id6[外婆]
+	id3--爸爸-->id7[外公]</pre><h3 id="links" tabindex="-1">Links</h3>
+<p><a href="https://plugins.javalent.com/admonitions" target="_blank" class="external-link">example</a></p>
+<p><a href="https://github.com/mnaoumov/obsidian-refresh-any-view" target="_blank" class="external-link">https://github.com/mnaoumov/obsidian-refresh-any-view</a></p>
+<p><a href="https://github.com/mnaoumov/obsidian-refresh-any-view/blob/master/src/PluginSettingsManager.ts" target="_blank" class="external-link">https://github.com/mnaoumov/obsidian-refresh-any-view/blob/master/src/PluginSettingsManager.ts</a></p>
+<p><a href="https://github.com/mnaoumov/obsidian-refresh-any-view/issues/5" target="_blank" class="external-link">https://github.com/mnaoumov/obsidian-refresh-any-view/issues/5</a></p>
+<p><a href="https://github.com/Seraphli/obsidian-link-embed/blob/main/versions.json" target="_blank" class="external-link">https://github.com/Seraphli/obsidian-link-embed/blob/main/versions.json</a></p>
+<div class="rich-link-card-container"><a class="rich-link-card" href="https://github.com/artisticat1/obsidian-latex-suite" target="_blank">
+<div class="rich-link-image-container">
+<div class="rich-link-image" style="background-image:url('https://github.com/fluidicon.png')">
+</div>
+</div>
+<div class="rich-link-card-text">
+<h1 class="rich-link-card-title">GitHub - artisticat 1/obsidian-latex-suite: Make typesetting LaTeX as fast as handwriting through snippets, text expansion, and editor enhancements</h1>
+<p class="rich-link-card-description">
+Make typesetting LaTeX as fast as handwriting through snippets, text expansion, and editor enhancements - artisticat 1/obsidian-latex-suite
+</p>
+<p class="rich-link-href">
+https://github.com/artisticat1/obsidian-latex-suite
+</p>
+</div>
+</a></div>
+<h3 id="table-1" tabindex="-1">Table</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>One</th>
+<th>Two</th>
+<th>Three</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-2</td>
+<td>-3</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>First name</th>
+<th>Last name</th>
+<th>foobar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max</td>
+<td>Planck</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Marie</td>
+<td>Curie</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Grams</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Whole Wheat Flour</td>
+<td>110</td>
+</tr>
+<tr>
+<td>Bread Flour</td>
+<td>748</td>
+</tr>
+<tr>
+<td>Warm Water</td>
+<td>691</td>
+</tr>
+<tr>
+<td>Salt</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Starter</td>
+<td>40</td>
+</tr>
+<tr>
+<td><strong>Total Grams</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="spoilers" tabindex="-1">Spoilers</h3>
+<p>||123 this is hidden text||</p>
+<p><strong>||这些文本将被隐藏，且会变为加粗||</strong></p>
+<p><em>||这些文本将被隐藏，且会变为斜体||</em></p>
+<h3 id="code" tabindex="-1">Code</h3>
+<p>Some inline code <code>{jsx} &lt;button role=&quot;button&quot; /&gt;</code>.</p>
+<pre><code class="language-pine">
+// https://github.com/mayurankv/Obsidian-Code-Styler
+
+pivothigh := ta.pivothigh(window, window)  // 使用pivothigh函数检测高点
+
+</code></pre>
+<h3 id="yaml" tabindex="-1">Yaml</h3>
+<pre><code class="language-yaml:">title: Project Plan
+tasks:
+  - name: Task 1
+    due: 2025-05-05
+  - name: Task 2
+    due: 2025-05-07
+</code></pre>
+<pre><code class="language-yaml">title: table title
+author: hogehoge
+date: 2025-05-07
+</code></pre>
+<pre><code class="language-yaml">project:
+  name: YAML Table Plugin
+  version: 1.1.0
+  features:
+    - table rendering
+    - hogehoge
+    - hogehoge
+</code></pre>
+<p>[[OB Style &amp; Format]]</p>
+<p><a href="https://pkmer.cn/show/20240612203328" target="_blank" class="external-link">https://pkmer.cn/show/20240612203328</a></p>
+<h3 id="embeds-files" tabindex="-1">Embeds Files</h3>
+<h4 id="markdown" tabindex="-1">Markdown</h4>
+<div class="transclusion internal-embed is-loaded"><div class="markdown-embed">
+<h2 id="notes" tabindex="-1">Notes</h2>
+<ul>
+<li>
+<p>[[Image]] [[Bases]] first image as<br>
+cover <a href="https://forum-zh.obsidian.md/t/topic/53093/14" target="_blank" class="external-link">https://forum-zh.obsidian.md/t/topic/53093/14</a></p>
+</li>
+<li>
+<p>[[Bases]] feed view <a href="https://github.com/edrickleong/obsidian-feed-bases" target="_blank" class="external-link">https://github.com/edrickleong/obsidian-feed-bases</a></p>
+</li>
+</ul>
+<h2 id="tasks-1" tabindex="-1">Tasks</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> [[Bases]] searchable <a href="https://forum.obsidian.md/t/workaround-to-filter-bases-tables-with-a-search-box-using-metabind-plugin/103662/4" target="_blank" class="external-link">https://forum.obsidian.md/t/workaround-to-filter-bases-tables-with-a-search-box-using-metabind-plugin/103662/4</a> [created:: 2025-11-25T23:54:18+08:00]</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" checked="true" disabled="true"><label for="cbx_2"> [[Bases]] hide new button <a href="https://forum.obsidian.md/t/bases-hide-toolbar/103391/2" target="_blank" class="external-link">https://forum.obsidian.md/t/bases-hide-toolbar/103391/2</a> [created:: 2025-12-06T00:43:36+08:00] [completion:: 2025-12-06T01:16:40+08:00]</label></li>
+</ul>
+</div></div>
+<h4 id="other" tabindex="-1">Other</h4>
+<h3 id="block-reference" tabindex="-1">Block Reference</h3>
+<h4 id="id" tabindex="-1">Id</h4>
+<p id="37066d">The quick purple gem dashes through the paragraph with blazing speed. Pen in hand and a paperclip in the other, Gemmy works toward her goal of making the world of note-taking a happier place.</p>
+<blockquote id="37066f">
+<p>The quick purple gem dashes through the paragraph with blazing speed. Pen in hand and a paperclip in the other, Gemmy works toward her goal of making the world of note-taking a happier place.</p>
+</blockquote>
+<p>[[#^37066d]]</p>
+<p>[[#^37066f]]</p>
+<p>This is the tale of Gemmy, the Unhelpful assistant.</p>
+<ul>
+<li>
+<p>Gemmy</p>
+<mjx-container class="MathJax" jax="SVG" display="true" style="direction:ltr;display:block;text-align:center;margin:1em 0;position:relative"><svg style="overflow:visible;min-height:1px;min-width:1px;vertical-align:-.566ex" xmlns="http://www.w3.org/2000/svg" width="14.923ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 6596 1000" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(751,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(1280,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(1783,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(2249,0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(2700,0)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(3133,0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(3431,0)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(3776,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z" style="stroke-width:3"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(4279,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z" style="stroke-width:3"></path></g></g><g data-mml-node="mi" transform="translate(4779,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(5530,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z" style="stroke-width:3"></path></g><g data-mml-node="mi" transform="translate(5996,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z" style="stroke-width:3"></path></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block" style="top:0;left:0;clip:rect(1px,1px,1px,1px);-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;position:absolute;padding:1px 0 0 0;border:0;display:block;overflow:hidden;width:100%"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>P</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>l</mi><mi>i</mi><mi>p</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>P</mi><mi>e</mi><mi>n</mi></math></mjx-assistive-mml></mjx-container></li>
+<li>
+<p>Unhelpful assistant</p>
+</li>
+</ul>
+<p id="quote-of-the-day">&quot;You do not rise to the level of your goals. You fall to the level of your systems.&quot; by James Clear</p>
+<p>[[#^quote-of-the-day]]</p>
+<h4 id="other-file" tabindex="-1">Other File</h4>
+<div class="transclusion internal-embed is-loaded"><div class="markdown-embed">
+<div class="markdown-embed-title">
+<h1 id="custom-name" tabindex="-1">Custom Name</h1>
+</div>
+<h2 id="tasks-2" tabindex="-1">Tasks</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_3" checked="true" disabled="true"><label for="cbx_3"> [[Dataview]] initial [completion:: 2025-09-09T23:59:59+08:00] [complete_reason: ok] [completion:: 2025-09-14T23:59:59+08:00]</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_4" checked="true" disabled="true"><label for="cbx_4"> [[OB Style &amp; Format]] learn format [created:: 2025-09-10T00:00:00+08:00] [start:: 2025-09-09T00:00:00+08:00] [completion:: 2025-09-10T23:59:59+08:00]</label></li>
+</ul>
+</div></div>
+<h4 id="current" tabindex="-1">Current</h4>
+<p><a class="internal-link is-unresolved" href="/404" target="">Custom Name</a></p>
+<h3 id="formats" tabindex="-1">Formats</h3>
+<details><summary>Toggle me!</summary>Peek a boo!</details>
+<pre><code class="language-js">const a = 1
+</code></pre>
+<p><a class="tag" onclick="toggleTagSearch(this)" data-content="#foobar">#foobar</a></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>First name</th>
+<th>Last name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max</td>
+<td>Planck</td>
+</tr>
+<tr>
+<td>Marie</td>
+<td>Curie</td>
+</tr>
+</tbody>
+</table></div>
+<pre class="mermaid">sequenceDiagram
+    Alice->>+John: Hello John, how are you?
+    Alice->>+John: John, can you hear me?
+    John-->>-Alice: Hi Alice, I can hear you!
+    John-->>-Alice: I feel great!</pre><p><mark>highlight</mark></p>
+<p>%%comments%%</p>
+<p><s>strikethroughs</s></p>
+<p><s>this</s></p>
+<blockquote>
+<p>Human beings face ever more complex and urgent problems, and their effectiveness in dealing with these problems is a matter that is critical to the stability and continued progress of society.</p>
+</blockquote>
+<p>- Doug Engelbart, 1961</p>
+<ul>
+<li>First list item</li>
+<li>Second list item</li>
+<li>Third list item</li>
+</ul>
+<ol>
+<li>First list item</li>
+<li>Second list item</li>
+<li>Third list item</li>
+</ol>
+<ol start="4">
+<li>First list item</li>
+<li>Second list item</li>
+<li>Third list item</li>
+<li>First list item</li>
+<li>Second list item</li>
+<li>Third list item</li>
+<li>Fourth list item</li>
+<li>Fifth list item</li>
+<li>Sixth list item</li>
+<li>First list item</li>
+<li>Ordered nested list item</li>
+<li>Second list item</li>
+</ol>
+<ul>
+<li>Unordered nested list item</li>
+</ul>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>Text inside <code>backticks</code> on a line will be formatted like code.</p>
+<p>cd ~/Desktop</p>
+<pre><code class="language-js">function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+</code></pre>
+<p>This is a simple footnote.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>You can also use inline footnotes. <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<p><img src="https://twitter.com/obsdmd/status/1580548874246443010" alt=""></p>
+<p>This is an comment.</p>
+<p><em>user</em></p>
+<p><strong>bold</strong></p>
+<p><strong>123</strong></p>
+<p><em>underline</em></p>
+<p><strong>foobar</strong></p>
+<p><span style="font-family:cursive">your text</span></p>
+<div class="callout is-collapsible is-collapsed" data-callout="important"><div class="callout-title"><div class="callout-title-inner"> 默认展开的注释<br></div><div class="callout-fold"><i icon-name="chevron-down"></i></div></div>
+<div class="callout-content">
+<p>
+注释内容</p>
+</div></div>
+<h3 id="callout-timeline" tabindex="-1">Callout Timeline</h3>
+<blockquote>
+<div class="callout" data-callout="timeline"><div class="callout-title"><div class="callout-title-inner"> 近代中国史</div></div>
+<div class="callout-content">
+<p>
+</p><blockquote>
+<p>1840年6月</p>
+</blockquote>
+<p></p><p>英军发动鸦片战争</p>
+<blockquote>
+<p>1842年8月</p>
+</blockquote>
+<p>清政府与英国签订《南京条约》:</p>
+<ul>
+<li>中国割让香港岛给英国;</li>
+<li>赔款洋银2100万元;</li>
+<li>开放广州、厦门、福州、宁波、上海五处为通商口岸;</li>
+</ul>
+<div class="callout is-collapsible" data-callout="cite"><div class="callout-title"><div class="callout-title-inner"> 《南京条约》影响</div><div class="callout-fold"><i icon-name="chevron-down"></i></div></div>
+<div class="callout-content">
+<p>
+</p><ol>
+<li>中国近代史上第一个不平等条约，给中国人民带来深重的灾难，开创了列强以条约形式侵略和奴役中国的恶例;</li>
+<li>中国的国家主权和领土完整遭到破坏，逐步沦为半殖民地半封建社会;</li>
+<li>中国社会的主要矛盾由地主阶级与农民阶级的矛盾，演变为帝国主义和中华民族的矛盾（主要矛盾)、封建主义和人民大众的矛盾;</li>
+<li>反侵略反封建成为中国人民肩负的两大历史任务;</li>
+<li>中国逐渐开始了反帝反封建的资产阶级民主革命。</li>
+</ol>
+<p></p></div></div>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1943年</td>
+<td>中英《虎门条约》签订;</td>
+</tr>
+<tr>
+<td>1844年</td>
+<td>中关《望厦条约》、中法《黄埔条约》签订</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>1841年5月</p>
+</blockquote>
+<p>三元里人民的抗英斗争，是中国近代史上中国人民第一次大规模的反侵略武装斗争。<br>
+<img src="https://tse1-mm.cn.bing.net/th/id/R-C.4bbce1406f4442c1360edde26baa894d?rik=iHeUeby0jS5lnw&amp;riu=http%3a%2f%2fp8.qhmsg.com%2fdr%2f270_500_%2ft01dbb76ff833d0a159.jpg&amp;ehk=yggnC0t62%2b6DEVjvBgs%2fXJuuexBucd66FTc5gL0Gw%2fA%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" alt=" "></p>
+</div></div>
+</blockquote>
+<p>123123123</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>This is the referenced text. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>This is an inline footnote. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);if(l&&"undefined"!=typeof ForceGraph&&(width=l.offsetWidth,height=l.offsetHeight,0!==width&&0!==height))try{const t=new Set;let i=null;const o=getCssVar("--graph-main"),a=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==i||e.source.id==i.id||e.target.id==i.id?o:a)).nodeCanvasObject(((e,n)=>{const r=e.neighbors&&e.neighbors.length||2,l=Math.min(7,Math.max(r/2,2));n.beginPath(),n.arc(e.x,e.y,l,0,2*Math.PI,!1),null==i||e==i||t.has(e.url)?n.fillStyle=o:n.fillStyle=a,n.fill(),e.current&&(n.beginPath(),n.arc(e.x,e.y,l+1,0,2*Math.PI,!1),n.lineWidth=.5,n.strokeStyle=o,n.stroke());const u=htmlDecode(e.title);n.font="3.5px Sans-Serif",n.textAlign="center",n.textBaseline="top",n.fillText(u,e.x,e.y+l+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{t.clear(),e&&(t.add(e),e.neighbors.forEach((e=>t.add(e)))),i=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}catch(e){return void console.warn("Graph rendering failed:",e)}}function renderLocalGraph(e,t,n){if(null==e)return;window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i data-lucide="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i data-lucide="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i data-lucide="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+OB Style &amp; Format
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#tasks">Tasks</a>
+</li>
+<li><a href="#draft">Draft</a>
+<ol>
+<li><a href="#citekey">Citekey</a>
+</li>
+<li><a href="#math">Math</a>
+</li>
+<li><a href="#text">Text</a>
+</li>
+<li><a href="#html-tag">HTML tag</a>
+</li>
+<li><a href="#flavor">Flavor</a>
+</li>
+<li><a href="#table">Table</a>
+</li>
+<li><a href="#test-theme">Test Theme</a>
+</li>
+<li><a href="#broken-link">Broken Link</a>
+</li>
+<li><a href="#auto-embed-link-test">Auto Embed Link Test</a>
+</li>
+<li><a href="#outline-numbering">Outline Numbering</a>
+</li>
+<li><a href="#whitespace">Whitespace</a>
+</li>
+<li><a href="#anyblock">Anyblock</a>
+</li>
+<li><a href="#image">Image</a>
+</li>
+<li><a href="#file-format">File Format</a>
+</li>
+<li><a href="#virtual-link">Virtual Link</a>
+</li>
+<li><a href="#mermaid">Mermaid</a>
+</li>
+<li><a href="#links">Links</a>
+</li>
+<li><a href="#table-1">Table</a>
+</li>
+<li><a href="#spoilers">Spoilers</a>
+</li>
+<li><a href="#code">Code</a>
+</li>
+<li><a href="#yaml">Yaml</a>
+</li>
+<li><a href="#embeds-files">Embeds Files</a>
+<ol>
+<li><a href="#markdown">Markdown</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#notes">Notes</a>
+</li>
+<li><a href="#tasks-1">Tasks</a>
+<ol>
+<li><a href="#other">Other</a>
+</li>
+<li><a href="#block-reference">Block Reference</a>
+<ol>
+<li><a href="#id">Id</a>
+</li>
+<li><a href="#other-file">Other File</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#custom-name">Custom Name</a>
+<ol>
+<li><a href="#tasks-2">Tasks</a>
+<ol>
+<li><a href="#current">Current</a>
+</li>
+<li><a href="#formats">Formats</a>
+</li>
+<li><a href="#callout-timeline">Callout Timeline</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<style>#tooltip-wrapper{background:var(--background-primary);padding:1em;border-radius:4px;overflow:hidden;position:fixed;width:80%;max-width:400px;height:auto;max-height:300px;font-size:.8em;box-shadow:0 5px 10px rgba(0,0,0,.1);opacity:0;transition:opacity .1s;unicode-bidi:plaintext;overflow-y:scroll;z-index:10}#tooltip-wrapper:after{content:"";position:absolute;z-index:1;bottom:0;left:0;pointer-events:none;width:100%;unicode-bidi:plaintext;height:75px}</style>
+<div style="opacity:0;display:none" id="tooltip-wrapper">
+<div id="tooltip-content">
+</div>
+</div>
+<iframe style="display:none;height:0;width:0" id="link-preview-iframe" src="">
+</iframe>
+<script>var opacityTimeout,contentTimeout,transitionDurationMs=100,iframe=document.getElementById("link-preview-iframe"),tooltipWrapper=document.getElementById("tooltip-wrapper"),tooltipContent=document.getElementById("tooltip-content"),linkHistories={};function hideTooltip(){opacityTimeout=setTimeout((function(){tooltipWrapper.style.opacity=0,contentTimeout=setTimeout((function(){tooltipContent.innerHTML="",tooltipWrapper.style.display="none"}),transitionDurationMs+1)}),transitionDurationMs)}function showTooltip(t){var e=t.target,o=e.getClientRects()[e.getClientRects().length-1],i=window.pageYOffset||document.documentElement.scrollTop,n=t.target.getAttribute("href");if(-1===n.indexOf("http")||-1!==n.indexOf(window.location.host)){let t=n.split("#")[0];linkHistories[t]?(tooltipContent.innerHTML=linkHistories[t],tooltipWrapper.style.display="block",setTimeout((function(){if(tooltipWrapper.style.opacity=1,-1!=n.indexOf("#")){let t=n.split("#")[1];const e=tooltipWrapper.querySelector(`[id='${t}']`);e.classList.add("referred"),e.scrollIntoView({behavior:"smooth"},!0)}else tooltipWrapper.scroll(0,0)}),1)):(iframe.src=t,iframe.onload=function(){tooltipContentHtml="",tooltipContentHtml+='<div style="font-weight: bold; unicode-bidi: plaintext;">'+iframe.contentWindow.document.querySelector("h1").innerHTML+"</div>",tooltipContentHtml+=iframe.contentWindow.document.querySelector(".content").innerHTML,tooltipContent.innerHTML=tooltipContentHtml,linkHistories[t]=tooltipContentHtml,tooltipWrapper.style.display="block",tooltipWrapper.scrollTop=0,setTimeout((function(){if(tooltipWrapper.style.opacity=1,-1!=n.indexOf("#")){let t=n.split("#")[1];const e=tooltipWrapper.querySelector(`[id='${t}']`);e.classList.add("referred"),console.log(e),e.scrollIntoView({behavior:"smooth"},!0)}else tooltipWrapper.scroll(0,0)}),1)}),tooltipWrapper.style.left=o.left-tooltipWrapper.offsetWidth/2+o.width/2+"px",window.innerHeight-o.top<tooltipWrapper.offsetHeight?tooltipWrapper.style.top=o.top+i-tooltipWrapper.offsetHeight-10+"px":window.innerHeight-o.top>tooltipWrapper.offsetHeight&&(tooltipWrapper.style.top=o.top+i+35+"px"),o.left+o.width/2<tooltipWrapper.offsetWidth/2?tooltipWrapper.style.left="10px":document.body.clientWidth-o.left-o.width/2<tooltipWrapper.offsetWidth/2&&(tooltipWrapper.style.left=document.body.clientWidth-tooltipWrapper.offsetWidth-20+"px")}}function setupListeners(t){t.addEventListener("mouseleave",(function(t){hideTooltip()})),tooltipWrapper.addEventListener("mouseleave",(function(t){hideTooltip()})),t.addEventListener("mouseenter",(function(t){clearTimeout(opacityTimeout),clearTimeout(contentTimeout),showTooltip(t)})),tooltipWrapper.addEventListener("mouseenter",(function(t){clearTimeout(opacityTimeout),clearTimeout(contentTimeout)}))}window.addEventListener("load",(function(t){document.querySelectorAll(".internal-link").forEach(setupListeners),document.querySelectorAll(".backlink-card a").forEach(setupListeners)}))</script>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script defer="defer" src="https://unpkg.com/lucide@latest"></script>
+<script defer="defer">document.addEventListener("DOMContentLoaded",(()=>{lucide.createIcons({attrs:{class:["svg-icon"]}})}))</script>
+</body>
+</html>
